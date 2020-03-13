@@ -32,7 +32,7 @@ app.get('/api/airbnb/listings/:id', async (req, res) => {
     // Get data from MongoDB
     console.log(req.params.id);
     const query = {_id: req.params.id};
-    const Places = await Place.find(query);
+    const Places = await Place.find(query).limit(20);
     console.log(Places);
     res.json(Places);
 
