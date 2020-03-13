@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'praoairbnbapi'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b670fae66e9d42c0b33cdb3408c3f3a6 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_787a3a64cfeb4b80873f237f7f0ab77c }}
         package: .
