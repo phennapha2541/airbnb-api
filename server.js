@@ -39,8 +39,6 @@ app.get('/api/airbnb/listings/:id', async (req, res) => {
 })
 
 
-app.listen(port, () => console.log(`Example app listening on http://localhost:${port}`))
-
 // Get listing by city name
 app.get('/api/airbnb/listings/city/:cityname', async (req, res) => {
 
