@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 // set server port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 const Place = require('./models/place');
 const cors = require('cors');
