@@ -1,7 +1,7 @@
-const express =  require('express');
+const express = require('express');
 const app = express();
 // set server port
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const Place = require('./models/place');
 const cors = require('cors');
@@ -15,29 +15,30 @@ mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true }).
     catch(err => console.log('Caught', err.stack));
 
 app.use(express.json());
-app.get('/', (req, res) => res.send("Hello World"));
+app.get('/', (req, res) => res.send("Hello, World"));
 
-
+// Get all listing
 app.get('/api/airbnb/listings', async (req, res) => {
 
-    //Get data from MongoDB
+    // Get data from MongoDB
     const query = {};
-    const Places = await Place.find(query);
-    console.log(Places);
-    res.json(Places);
+    const places = await Place.find(query).limit(20);
+    console.log(places);
+    res.json(places);
+
 })
 
+// Get listing by ID
 app.get('/api/airbnb/listings/:id', async (req, res) => {
 
     // Get data from MongoDB
     console.log(req.params.id);
     const query = {_id: req.params.id};
-    const Places = await Place.find(query).limit(20);
-    console.log(Places);
-    res.json(Places);
+    const places = await Place.find(query).limit(20);
+    console.log(places);
+    res.json(places);
 
 })
-
 
 // Get listing by city name
 app.get('/api/airbnb/listings/city/:cityname', async (req, res) => {
