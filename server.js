@@ -4,6 +4,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 const Place = require('./models/place');
+const cors = require('cors');
+app.use(cors());
 
 
 const uri = "mongodb://admin:admin@cluster0-shard-00-00-srpxy.gcp.mongodb.net:27017,cluster0-shard-00-01-srpxy.gcp.mongodb.net:27017,cluster0-shard-00-02-srpxy.gcp.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority";
